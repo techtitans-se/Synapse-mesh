@@ -1,0 +1,8 @@
+source;share/synapse_amr_warehouse/hook/cmake_prefix_path.ps1
+source;share/synapse_amr_warehouse/hook/cmake_prefix_path.dsv
+source;share/synapse_amr_warehouse/hook/cmake_prefix_path.sh
+source;share/synapse_amr_warehouse/local_setup.bash
+source;share/synapse_amr_warehouse/local_setup.dsv
+source;share/synapse_amr_warehouse/local_setup.ps1
+source;share/synapse_amr_warehouse/local_setup.sh
+source;share/synapse_amr_warehouse/local_setup.zsh

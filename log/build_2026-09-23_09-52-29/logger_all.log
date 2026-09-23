@@ -1,0 +1,195 @@
+[0.219s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'synapse_amr_warehouse', '--symlink-install']
+[0.219s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['synapse_amr_warehouse'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f29b900d5a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f29b900cf10>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f29b900cf10>>, mixin_verb=('build',))
+[0.485s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.486s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.486s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/akil/Desktop/synapse_mesh'
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.486s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.487s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.503s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extensions ['ignore', 'ignore_ament_install']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extension 'ignore'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extension 'ignore_ament_install'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extensions ['colcon_pkg']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extension 'colcon_pkg'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extensions ['colcon_meta']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extension 'colcon_meta'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extensions ['ros']
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_bringup_full) by extension 'ros'
+[0.513s] DEBUG:colcon.colcon_core.package_identification:Package 'scratch_bringup_full' with type 'ros.ament_python' and name 'synapse_mesh_bringup'
+[0.513s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extensions ['ignore', 'ignore_ament_install']
+[0.513s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extension 'ignore'
+[0.514s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extension 'ignore_ament_install'
+[0.514s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extensions ['colcon_pkg']
+[0.514s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extension 'colcon_pkg'
+[0.514s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extensions ['colcon_meta']
+[0.514s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extension 'colcon_meta'
+[0.514s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extensions ['ros']
+[0.514s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_lma_node) by extension 'ros'
+[0.515s] DEBUG:colcon.colcon_core.package_identification:Package 'scratch_lma_node' with type 'ros.ament_python' and name 'lma_node'
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extensions ['ignore', 'ignore_ament_install']
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extension 'ignore'
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extension 'ignore_ament_install'
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extensions ['colcon_pkg']
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extension 'colcon_pkg'
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extensions ['colcon_meta']
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extension 'colcon_meta'
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extensions ['ros']
+[0.515s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_st_lease_node) by extension 'ros'
+[0.516s] DEBUG:colcon.colcon_core.package_identification:Package 'scratch_st_lease_node' with type 'ros.ament_python' and name 'st_lease_node'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'ignore'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'ignore_ament_install'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extensions ['colcon_pkg']
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'colcon_pkg'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extensions ['colcon_meta']
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'colcon_meta'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extensions ['ros']
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'ros'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extensions ['cmake', 'python']
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'cmake'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'python'
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extensions ['python_setup_py']
+[0.516s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup) by extension 'python_setup_py'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'ignore'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'ignore_ament_install'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extensions ['colcon_pkg']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'colcon_pkg'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extensions ['colcon_meta']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'colcon_meta'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extensions ['ros']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'ros'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extensions ['cmake', 'python']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'cmake'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'python'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extensions ['python_setup_py']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(scratch_synapse_mesh_bringup/__pycache__) by extension 'python_setup_py'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.517s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extensions ['ignore', 'ignore_ament_install']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'ignore'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'ignore_ament_install'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extensions ['colcon_pkg']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'colcon_pkg'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extensions ['colcon_meta']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'colcon_meta'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extensions ['ros']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'ros'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extensions ['cmake', 'python']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'cmake'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'python'
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extensions ['python_setup_py']
+[0.518s] Level 1:colcon.colcon_core.package_identification:_identify(src/amr_web_dashboard) by extension 'python_setup_py'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extensions ['ignore', 'ignore_ament_install']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extension 'ignore'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extension 'ignore_ament_install'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extensions ['colcon_pkg']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extension 'colcon_pkg'
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extensions ['colcon_meta']
+[0.521s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extension 'colcon_meta'
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extensions ['ros']
+[0.522s] Level 1:colcon.colcon_core.package_identification:_identify(src/synapse_amr_warehouse) by extension 'ros'
+[0.525s] DEBUG:colcon.colcon_core.package_identification:Package 'src/synapse_amr_warehouse' with type 'ros.ament_cmake' and name 'synapse_amr_warehouse'
+[0.525s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.525s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.525s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.525s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.525s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.580s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'lma_node' in 'scratch_lma_node'
+[0.580s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'st_lease_node' in 'scratch_st_lease_node'
+[0.580s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'synapse_mesh_bringup' in 'scratch_bringup_full'
+[0.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.583s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'cmake_args' from command line to 'None'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'cmake_target' from command line to 'None'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'cmake_clean_cache' from command line to 'False'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'cmake_clean_first' from command line to 'False'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'cmake_force_configure' from command line to 'False'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'ament_cmake_args' from command line to 'None'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'catkin_cmake_args' from command line to 'None'
+[0.585s] Level 5:colcon.colcon_core.verb:set package 'synapse_amr_warehouse' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.585s] DEBUG:colcon.colcon_core.verb:Building package 'synapse_amr_warehouse' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse', 'merge_install': False, 'path': '/home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse', 'symlink_install': True, 'test_result_base': None}
+[0.586s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.588s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.589s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse' with build type 'ament_cmake'
+[0.589s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse'
+[0.597s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.597s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.597s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.615s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse
+[0.684s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '1': /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse
+[0.687s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(synapse_amr_warehouse)
+[0.692s] Level 1:colcon.colcon_core.environment:checking '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse' for CMake module files
+[0.693s] Level 1:colcon.colcon_core.environment:checking '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse' for CMake config files
+[0.694s] Level 1:colcon.colcon_core.shell:create_environment_hook('synapse_amr_warehouse', 'cmake_prefix_path')
+[0.695s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/hook/cmake_prefix_path.ps1'
+[0.696s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/hook/cmake_prefix_path.dsv'
+[0.697s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/hook/cmake_prefix_path.sh'
+[0.703s] Level 1:colcon.colcon_core.environment:checking '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib'
+[0.706s] Level 1:colcon.colcon_core.environment:checking '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/bin'
+[0.707s] Level 1:colcon.colcon_core.environment:checking '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/pkgconfig/synapse_amr_warehouse.pc'
+[0.709s] Level 1:colcon.colcon_core.environment:checking '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/python3.10/site-packages'
+[0.710s] Level 1:colcon.colcon_core.environment:checking '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/bin'
+[0.710s] INFO:colcon.colcon_core.shell:Creating package script '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.ps1'
+[0.718s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.dsv'
+[0.720s] INFO:colcon.colcon_core.shell:Creating package script '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.sh'
+[0.726s] INFO:colcon.colcon_core.shell:Creating package script '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.bash'
+[0.731s] INFO:colcon.colcon_core.shell:Creating package script '/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.zsh'
+[0.735s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/colcon-core/packages/synapse_amr_warehouse)
+[0.746s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.747s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.747s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[0.747s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.760s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.761s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.761s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.761s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[0.761s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.761s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/akil/Desktop/synapse_mesh/install/local_setup.ps1'
+[0.763s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/akil/Desktop/synapse_mesh/install/_local_setup_util_ps1.py'
+[0.765s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/akil/Desktop/synapse_mesh/install/setup.ps1'
+[0.796s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/akil/Desktop/synapse_mesh/install/local_setup.sh'
+[0.797s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/akil/Desktop/synapse_mesh/install/_local_setup_util_sh.py'
+[0.799s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/akil/Desktop/synapse_mesh/install/setup.sh'
+[0.806s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/akil/Desktop/synapse_mesh/install/local_setup.bash'
+[0.807s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/akil/Desktop/synapse_mesh/install/setup.bash'
+[0.808s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/akil/Desktop/synapse_mesh/install/local_setup.zsh'
+[0.809s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/akil/Desktop/synapse_mesh/install/setup.zsh'

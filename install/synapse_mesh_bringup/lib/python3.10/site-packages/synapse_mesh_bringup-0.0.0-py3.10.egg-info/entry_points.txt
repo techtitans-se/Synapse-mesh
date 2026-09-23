@@ -1,0 +1,3 @@
+[console_scripts]
+fms_server = synapse_mesh_bringup.fms_server:main
+

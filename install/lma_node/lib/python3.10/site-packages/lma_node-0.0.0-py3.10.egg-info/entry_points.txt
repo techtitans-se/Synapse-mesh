@@ -1,0 +1,3 @@
+[console_scripts]
+lma_node = lma_node.lma_node:main
+

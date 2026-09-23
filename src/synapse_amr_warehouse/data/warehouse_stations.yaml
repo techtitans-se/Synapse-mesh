@@ -1,0 +1,145 @@
+# Warehouse Waypoint Stations and Zone Map
+# Coordinates are in meters relative to world frame (0, 0 at warehouse center)
+
+stations:
+  charging_dock:
+    name: "Autonomous Charging Station 1"
+    zone: "CHARGING_ZONE"
+    x: 8.0
+    y: -6.5
+    yaw: 3.14159
+    type: "DOCK"
+    tolerance: 0.05
+    description: "AMR fast charging dock with visual align target"
+
+  inbound_dock:
+    name: "Inbound Receiving Bay 1"
+    zone: "INBOUND"
+    x: -8.0
+    y: -6.5
+    yaw: 1.5708
+    type: "PICKUP"
+    tolerance: 0.15
+    description: "Raw goods inbound unloading dock"
+
+  outbound_staging:
+    name: "Outbound Dispatch Staging"
+    zone: "OUTBOUND"
+    x: -8.0
+    y: 6.5
+    yaw: -1.5708
+    type: "DROPOFF"
+    tolerance: 0.15
+    description: "Pallet order dispatch staging zone"
+
+  quality_inspection:
+    name: "Quality Control & Metrology Station"
+    zone: "QC"
+    x: 7.5
+    y: 4.5
+    yaw: 3.14159
+    type: "INSPECTION"
+    tolerance: 0.10
+    description: "Optical and weight verification workstation"
+
+  # Aisle A Navigation & Bay Pickups (North Aisle driving center: y = 3.6)
+  aisle_a_entry:
+    name: "Aisle A West Entrance"
+    zone: "TRANSIT"
+    x: -5.5
+    y: 3.6
+    yaw: 0.0
+    type: "WAYPOINT"
+    tolerance: 0.20
+
+  aisle_a_bay_1:
+    name: "Aisle A Bay 1 (Rack A1-1 / A2-1)"
+    zone: "STORAGE_AISLE_A"
+    x: -4.5
+    y: 3.6
+    yaw: 1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  aisle_a_bay_2:
+    name: "Aisle A Bay 2 (Rack A1-2 / A2-2)"
+    zone: "STORAGE_AISLE_A"
+    x: -1.5
+    y: 3.6
+    yaw: 1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  aisle_a_bay_3:
+    name: "Aisle A Bay 3 (Rack A1-3 / A2-3)"
+    zone: "STORAGE_AISLE_A"
+    x: 1.5
+    y: 3.6
+    yaw: 1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  aisle_a_bay_4:
+    name: "Aisle A Bay 4 (Rack A1-4 / A2-4)"
+    zone: "STORAGE_AISLE_A"
+    x: 4.5
+    y: 3.6
+    yaw: 1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  # Aisle B Navigation & Bay Pickups (South Aisle driving center: y = -3.6)
+  aisle_b_entry:
+    name: "Aisle B West Entrance"
+    zone: "TRANSIT"
+    x: -5.5
+    y: -3.6
+    yaw: 0.0
+    type: "WAYPOINT"
+    tolerance: 0.20
+
+  aisle_b_bay_1:
+    name: "Aisle B Bay 1 (Rack B1-1 / B2-1)"
+    zone: "STORAGE_AISLE_B"
+    x: -4.5
+    y: -3.6
+    yaw: -1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  aisle_b_bay_2:
+    name: "Aisle B Bay 2 (Rack B1-2 / B2-2)"
+    zone: "STORAGE_AISLE_B"
+    x: -1.5
+    y: -3.6
+    yaw: -1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  aisle_b_bay_3:
+    name: "Aisle B Bay 3 (Rack B1-3 / B2-3)"
+    zone: "STORAGE_AISLE_B"
+    x: 1.5
+    y: -3.6
+    yaw: -1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  aisle_b_bay_4:
+    name: "Aisle B Bay 4 (Rack B1-4 / B2-4)"
+    zone: "STORAGE_AISLE_B"
+    x: 4.5
+    y: -3.6
+    yaw: -1.5708
+    type: "RACK_BAY"
+    tolerance: 0.10
+
+  # Central Transit Hub
+  central_junction:
+    name: "Main Intersection Highway"
+    zone: "TRANSIT"
+    x: 0.0
+    y: 0.0
+    yaw: 0.0
+    type: "JUNCTION"
+    tolerance: 0.30

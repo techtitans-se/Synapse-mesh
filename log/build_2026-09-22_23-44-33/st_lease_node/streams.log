@@ -1,0 +1,21 @@
+[1.781s] Invoking command in '/home/akil/Desktop/synapse_mesh/scratch_st_lease_node': PYTHONPATH=/home/akil/Desktop/synapse_mesh/build/st_lease_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/akil/Desktop/synapse_mesh/install/st_lease_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/st_lease_node build --build-base /home/akil/Desktop/synapse_mesh/build/st_lease_node/build install --record /home/akil/Desktop/synapse_mesh/build/st_lease_node/install.log --install-scripts $base/lib/st_lease_node --single-version-externally-managed install_data
+[2.179s] running egg_info
+[2.180s] writing ../build/st_lease_node/st_lease_node.egg-info/PKG-INFO
+[2.180s] writing dependency_links to ../build/st_lease_node/st_lease_node.egg-info/dependency_links.txt
+[2.180s] writing entry points to ../build/st_lease_node/st_lease_node.egg-info/entry_points.txt
+[2.181s] writing requirements to ../build/st_lease_node/st_lease_node.egg-info/requires.txt
+[2.181s] writing top-level names to ../build/st_lease_node/st_lease_node.egg-info/top_level.txt
+[2.186s] reading manifest file '../build/st_lease_node/st_lease_node.egg-info/SOURCES.txt'
+[2.187s] writing manifest file '../build/st_lease_node/st_lease_node.egg-info/SOURCES.txt'
+[2.187s] running build
+[2.187s] running build_py
+[2.187s] running install
+[2.187s] running install_lib
+[2.189s] running install_data
+[2.190s] running install_egg_info
+[2.193s] removing '/home/akil/Desktop/synapse_mesh/install/st_lease_node/lib/python3.10/site-packages/st_lease_node-0.0.0-py3.10.egg-info' (and everything under it)
+[2.193s] Copying ../build/st_lease_node/st_lease_node.egg-info to /home/akil/Desktop/synapse_mesh/install/st_lease_node/lib/python3.10/site-packages/st_lease_node-0.0.0-py3.10.egg-info
+[2.194s] running install_scripts
+[2.222s] Installing st_lease_node script to /home/akil/Desktop/synapse_mesh/install/st_lease_node/lib/st_lease_node
+[2.222s] writing list of installed files to '/home/akil/Desktop/synapse_mesh/build/st_lease_node/install.log'
+[2.299s] Invoked command in '/home/akil/Desktop/synapse_mesh/scratch_st_lease_node' returned '0': PYTHONPATH=/home/akil/Desktop/synapse_mesh/build/st_lease_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/akil/Desktop/synapse_mesh/install/st_lease_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/st_lease_node build --build-base /home/akil/Desktop/synapse_mesh/build/st_lease_node/build install --record /home/akil/Desktop/synapse_mesh/build/st_lease_node/install.log --install-scripts $base/lib/st_lease_node --single-version-externally-managed install_data

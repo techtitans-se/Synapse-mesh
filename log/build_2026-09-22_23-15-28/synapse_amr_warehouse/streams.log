@@ -1,0 +1,43 @@
+[0.011s] Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': /usr/bin/cmake --build /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse -- -j12 -l12
+[0.071s] Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '0': /usr/bin/cmake --build /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse -- -j12 -l12
+[0.079s] Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': /usr/bin/cmake --install /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse
+[0.093s] -- Install configuration: ""
+[0.093s] -- Execute custom install script
+[0.093s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//launch/warehouse_sim.launch.py
+[0.093s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//worlds/warehouse.world
+[0.093s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/cargo_box/model.config
+[0.093s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/cargo_box/model.sdf
+[0.095s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/charging_dock/model.config
+[0.095s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/charging_dock/model.sdf
+[0.095s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/euro_pallet/model.config
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/euro_pallet/model.sdf
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/pallet_rack/model.config
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/pallet_rack/model.sdf
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/safety_bollard/model.config
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/safety_bollard/model.sdf
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//urdf/synapse_amr.urdf.xacro
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//maps/warehouse_map.pgm
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//maps/warehouse_map.yaml
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//rviz/warehouse_view.rviz
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/amr_specs.json
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/inventory_data.json
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/warehouse_stations.yaml
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/synapse_amr_warehouse/amr_rule_engine.py
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/synapse_amr_warehouse/teleop_keyboard.py
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/synapse_amr_warehouse/amr_task_executor.py
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/package_run_dependencies/synapse_amr_warehouse
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/parent_prefix_path/synapse_amr_warehouse
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/ament_prefix_path.sh
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/ament_prefix_path.dsv
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/path.sh
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/path.dsv
+[0.096s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.bash
+[0.097s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.sh
+[0.097s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.zsh
+[0.097s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.dsv
+[0.097s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.dsv
+[0.108s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/packages/synapse_amr_warehouse
+[0.108s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/cmake/synapse_amr_warehouseConfig.cmake
+[0.108s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/cmake/synapse_amr_warehouseConfig-version.cmake
+[0.108s] -- Up-to-date symlink: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.xml
+[0.112s] Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '0': /usr/bin/cmake --install /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse

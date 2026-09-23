@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="safety_bollard">
+    <static>true</static>
+    <link name="bollard_link">
+      <!-- Base flange -->
+      <visual name="flange">
+        <pose>0 0 0.01 0 0 0</pose>
+        <geometry><cylinder><radius>0.14</radius><length>0.02</length></cylinder></geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1.0</ambient>
+          <diffuse>0.3 0.3 0.3 1.0</diffuse>
+        </material>
+      </visual>
+
+      <!-- Main yellow post -->
+      <visual name="post">
+        <pose>0 0 0.45 0 0 0</pose>
+        <geometry><cylinder><radius>0.075</radius><length>0.90</length></cylinder></geometry>
+        <material>
+          <ambient>0.95 0.75 0.05 1.0</ambient>
+          <diffuse>0.98 0.80 0.10 1.0</diffuse>
+        </material>
+      </visual>
+
+      <!-- Black warning stripe 1 -->
+      <visual name="stripe1">
+        <pose>0 0 0.65 0 0 0</pose>
+        <geometry><cylinder><radius>0.076</radius><length>0.08</length></cylinder></geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.15 0.15 0.15 1.0</diffuse>
+        </material>
+      </visual>
+
+      <!-- Black warning stripe 2 -->
+      <visual name="stripe2">
+        <pose>0 0 0.45 0 0 0</pose>
+        <geometry><cylinder><radius>0.076</radius><length>0.08</length></cylinder></geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.15 0.15 0.15 1.0</diffuse>
+        </material>
+      </visual>
+
+      <collision name="col_bollard">
+        <pose>0 0 0.45 0 0 0</pose>
+        <geometry><cylinder><radius>0.08</radius><length>0.90</length></cylinder></geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,4 @@
+source;share/synapse_amr_warehouse/local_setup.bash
+source;share/synapse_amr_warehouse/local_setup.dsv
+source;share/synapse_amr_warehouse/local_setup.sh
+source;share/synapse_amr_warehouse/local_setup.zsh

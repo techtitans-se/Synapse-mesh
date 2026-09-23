@@ -1,0 +1,120 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="warehouse_world">
+    <physics type="ode">
+      <max_step_size>0.005</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>200</real_time_update_rate>
+    </physics>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Outer walls -->
+    <model name="outer_walls">
+      <static>true</static>
+      <link name="link">
+        <collision name="wall_n">
+          <pose>0 5 1 0 0 0</pose>
+          <geometry><box><size>10 0.2 2</size></box></geometry>
+        </collision>
+        <visual name="wall_n_visual">
+          <pose>0 5 1 0 0 0</pose>
+          <geometry><box><size>10 0.2 2</size></box></geometry>
+          <material><script><name>Gazebo/Grey</name></script></material>
+        </visual>
+        
+        <collision name="wall_s">
+          <pose>0 -5 1 0 0 0</pose>
+          <geometry><box><size>10 0.2 2</size></box></geometry>
+        </collision>
+        <visual name="wall_s_visual">
+          <pose>0 -5 1 0 0 0</pose>
+          <geometry><box><size>10 0.2 2</size></box></geometry>
+          <material><script><name>Gazebo/Grey</name></script></material>
+        </visual>
+
+        <collision name="wall_e">
+          <pose>5 0 1 0 0 0</pose>
+          <geometry><box><size>0.2 10 2</size></box></geometry>
+        </collision>
+        <visual name="wall_e_visual">
+          <pose>5 0 1 0 0 0</pose>
+          <geometry><box><size>0.2 10 2</size></box></geometry>
+          <material><script><name>Gazebo/Grey</name></script></material>
+        </visual>
+
+        <collision name="wall_w">
+          <pose>-5 0 1 0 0 0</pose>
+          <geometry><box><size>0.2 10 2</size></box></geometry>
+        </collision>
+        <visual name="wall_w_visual">
+          <pose>-5 0 1 0 0 0</pose>
+          <geometry><box><size>0.2 10 2</size></box></geometry>
+          <material><script><name>Gazebo/Grey</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <scene>
+      <shadows>false</shadows>
+    </scene>
+
+    <!-- Warehouse Shelf Blocks creating a 4-way Central Conflict Intersection at (0, 0) -->
+    <!-- North-South corridor (x: -1.1 to 1.1) and East-West corridor (y: -1.1 to 1.1) -->
+    <model name="warehouse_shelf_blocks">
+      <static>true</static>
+      <link name="link">
+        <!-- Northwest Block -->
+        <collision name="block_nw">
+          <pose>-2.8 2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+        </collision>
+        <visual name="block_nw_visual">
+          <pose>-2.8 2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+          <material><script><name>Gazebo/Wood</name></script></material>
+        </visual>
+        
+        <!-- Northeast Block -->
+        <collision name="block_ne">
+          <pose>2.8 2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+        </collision>
+        <visual name="block_ne_visual">
+          <pose>2.8 2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+          <material><script><name>Gazebo/Wood</name></script></material>
+        </visual>
+
+        <!-- Southwest Block -->
+        <collision name="block_sw">
+          <pose>-2.8 -2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+        </collision>
+        <visual name="block_sw_visual">
+          <pose>-2.8 -2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+          <material><script><name>Gazebo/Wood</name></script></material>
+        </visual>
+
+        <!-- Southeast Block -->
+        <collision name="block_se">
+          <pose>2.8 -2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+        </collision>
+        <visual name="block_se_visual">
+          <pose>2.8 -2.8 1.0 0 0 0</pose>
+          <geometry><box><size>3.4 3.4 2.0</size></box></geometry>
+          <material><script><name>Gazebo/Wood</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

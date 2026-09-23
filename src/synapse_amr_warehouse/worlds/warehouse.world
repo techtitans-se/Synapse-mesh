@@ -1,0 +1,435 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="synapse_warehouse">
+    <!-- Default Top-Down Camera View -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0.0 0.0 22.0 0 1.570796 1.570796</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>50.0</update_rate>
+    </plugin>
+    <!-- Physics configuration optimized for ultra-smooth mobile robot simulation -->
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>20</iters>
+          <sor>1.2</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+
+    <!-- Scene lighting: balanced realistic contrast, no washed-out white -->
+    <scene>
+      <ambient>0.42 0.42 0.42 1.0</ambient>
+      <background>0.12 0.14 0.17 1.0</background>
+      <shadows>false</shadows>
+      <grid>false</grid>
+    </scene>
+
+    <!-- Ambient / Warehouse Sun -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Balanced High-Bay Warehouse Lighting -->
+    <light type="point" name="highbay_light_1">
+      <pose>-5.0 0.0 5.5 0 0 0</pose>
+      <diffuse>0.55 0.55 0.55 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>30</range>
+        <constant>0.6</constant>
+        <linear>0.02</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>false</cast_shadows>
+    </light>
+
+    <light type="point" name="highbay_light_2">
+      <pose>5.0 0.0 5.5 0 0 0</pose>
+      <diffuse>0.55 0.55 0.55 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>30</range>
+        <constant>0.6</constant>
+        <linear>0.02</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>false</cast_shadows>
+    </light>
+
+    <!-- ================= WAREHOUSE BUILDING ================= -->
+    <model name="warehouse_structure">
+      <static>true</static>
+      <link name="floor_and_walls">
+        <!-- High-strength Industrial Concrete Floor -->
+        <visual name="concrete_floor">
+          <pose>0 0 -0.05 0 0 0</pose>
+          <geometry><box><size>25.0 19.0 0.1</size></box></geometry>
+          <material>
+            <ambient>0.45 0.46 0.48 1.0</ambient>
+            <diffuse>0.55 0.56 0.58 1.0</diffuse>
+          </material>
+        </visual>
+        <collision name="col_floor">
+          <pose>0 0 -0.05 0 0 0</pose>
+          <geometry><box><size>25.0 19.0 0.1</size></box></geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+
+        <!-- Floor Markings: Safety Yellow Central Walkway / Transit Line -->
+        <visual name="lane_marking_center">
+          <pose>0 0 0.002 0 0 0</pose>
+          <geometry><box><size>18.0 0.12 0.001</size></box></geometry>
+          <material>
+            <ambient>0.95 0.78 0.10 1.0</ambient>
+            <diffuse>0.98 0.82 0.12 1.0</diffuse>
+          </material>
+        </visual>
+
+        <!-- Floor Markings: Inbound Staging Border -->
+        <visual name="inbound_zone_border">
+          <pose>-8.5 -6.5 0.002 0 0 0</pose>
+          <geometry><box><size>4.5 3.5 0.001</size></box></geometry>
+          <material>
+            <ambient>0.25 0.50 0.75 0.8</ambient>
+            <diffuse>0.30 0.60 0.85 0.8</diffuse>
+          </material>
+        </visual>
+
+        <!-- Floor Markings: Outbound Staging Border -->
+        <visual name="outbound_zone_border">
+          <pose>-8.5 6.5 0.002 0 0 0</pose>
+          <geometry><box><size>4.5 3.5 0.001</size></box></geometry>
+          <material>
+            <ambient>0.25 0.70 0.40 0.8</ambient>
+            <diffuse>0.30 0.80 0.45 0.8</diffuse>
+          </material>
+        </visual>
+
+        <!-- Floor Markings: Charging Dock Border -->
+        <visual name="dock_zone_border">
+          <pose>8.0 -6.5 0.002 0 0 0</pose>
+          <geometry><box><size>3.5 3.0 0.001</size></box></geometry>
+          <material>
+            <ambient>0.85 0.65 0.10 0.8</ambient>
+            <diffuse>0.95 0.75 0.15 0.8</diffuse>
+          </material>
+        </visual>
+
+        <!-- Perimeter Walls (North, South, East, West) -->
+        <!-- North Wall -->
+        <visual name="wall_north">
+          <pose>0 9.5 2.0 0 0 0</pose>
+          <geometry><box><size>25.0 0.3 4.0</size></box></geometry>
+          <material>
+            <ambient>0.35 0.38 0.42 1.0</ambient>
+            <diffuse>0.45 0.48 0.52 1.0</diffuse>
+          </material>
+        </visual>
+        <collision name="col_wall_north">
+          <pose>0 9.5 2.0 0 0 0</pose>
+          <geometry><box><size>25.0 0.3 4.0</size></box></geometry>
+        </collision>
+
+        <!-- South Wall -->
+        <visual name="wall_south">
+          <pose>0 -9.5 2.0 0 0 0</pose>
+          <geometry><box><size>25.0 0.3 4.0</size></box></geometry>
+          <material>
+            <ambient>0.35 0.38 0.42 1.0</ambient>
+            <diffuse>0.45 0.48 0.52 1.0</diffuse>
+          </material>
+        </visual>
+        <collision name="col_wall_south">
+          <pose>0 -9.5 2.0 0 0 0</pose>
+          <geometry><box><size>25.0 0.3 4.0</size></box></geometry>
+        </collision>
+
+        <!-- East Wall -->
+        <visual name="wall_east">
+          <pose>12.5 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.3 19.3 4.0</size></box></geometry>
+          <material>
+            <ambient>0.35 0.38 0.42 1.0</ambient>
+            <diffuse>0.45 0.48 0.52 1.0</diffuse>
+          </material>
+        </visual>
+        <collision name="col_wall_east">
+          <pose>12.5 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.3 19.3 4.0</size></box></geometry>
+        </collision>
+
+        <!-- West Wall -->
+        <visual name="wall_west">
+          <pose>-12.5 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.3 19.3 4.0</size></box></geometry>
+          <material>
+            <ambient>0.35 0.38 0.42 1.0</ambient>
+            <diffuse>0.45 0.48 0.52 1.0</diffuse>
+          </material>
+        </visual>
+        <collision name="col_wall_west">
+          <pose>-12.5 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.3 19.3 4.0</size></box></geometry>
+        </collision>
+
+        <!-- Structural Building Columns -->
+        <visual name="column_1">
+          <pose>-4.0 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.5 0.5 4.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.35 1.0</ambient><diffuse>0.4 0.4 0.45 1.0</diffuse></material>
+        </visual>
+        <collision name="col_column_1">
+          <pose>-4.0 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.5 0.5 4.0</size></box></geometry>
+        </collision>
+
+        <visual name="column_2">
+          <pose>4.0 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.5 0.5 4.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.35 1.0</ambient><diffuse>0.4 0.4 0.45 1.0</diffuse></material>
+        </visual>
+        <collision name="col_column_2">
+          <pose>4.0 0 2.0 0 0 0</pose>
+          <geometry><box><size>0.5 0.5 4.0</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- ================= CHARGING DOCK ================= -->
+    <include>
+      <name>amr_charging_dock</name>
+      <uri>model://charging_dock</uri>
+      <!-- Placed against eastern zone, AMR approaches facing East or West -->
+      <pose>9.0 -6.5 0 0 0 3.14159</pose>
+    </include>
+
+    <!-- ================= AISLE A: STORAGE RACKS (North Section) ================= -->
+    <!-- Row A1 (Back row, y = 5.0) -->
+    <include>
+      <name>rack_a1_1</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-4.5 5.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_a1_2</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-1.5 5.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_a1_3</name>
+      <uri>model://pallet_rack</uri>
+      <pose>1.5 5.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_a1_4</name>
+      <uri>model://pallet_rack</uri>
+      <pose>4.5 5.0 0 0 0 0</pose>
+    </include>
+
+    <!-- Row A2 (Front row, y = 2.2) -->
+    <include>
+      <name>rack_a2_1</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-4.5 2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_a2_2</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-1.5 2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_a2_3</name>
+      <uri>model://pallet_rack</uri>
+      <pose>1.5 2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_a2_4</name>
+      <uri>model://pallet_rack</uri>
+      <pose>4.5 2.2 0 0 0 0</pose>
+    </include>
+
+    <!-- ================= AISLE B: STORAGE RACKS (South Section) ================= -->
+    <!-- Row B1 (Front row, y = -2.2) -->
+    <include>
+      <name>rack_b1_1</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-4.5 -2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_b1_2</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-1.5 -2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_b1_3</name>
+      <uri>model://pallet_rack</uri>
+      <pose>1.5 -2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_b1_4</name>
+      <uri>model://pallet_rack</uri>
+      <pose>4.5 -2.2 0 0 0 0</pose>
+    </include>
+
+    <!-- Row B2 (Back row, y = -5.0) -->
+    <include>
+      <name>rack_b2_1</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-4.5 -5.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_b2_2</name>
+      <uri>model://pallet_rack</uri>
+      <pose>-1.5 -5.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_b2_3</name>
+      <uri>model://pallet_rack</uri>
+      <pose>1.5 -5.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>rack_b2_4</name>
+      <uri>model://pallet_rack</uri>
+      <pose>4.5 -5.0 0 0 0 0</pose>
+    </include>
+
+    <!-- ================= PRELOADED PALLETS & CARGO TEMPLATES ================= -->
+    <!-- Inbound Staging Pallets & Boxes -->
+    <include>
+      <name>pallet_inbound_1</name>
+      <uri>model://euro_pallet</uri>
+      <pose>-9.0 -7.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>box_inbound_1a</name>
+      <uri>model://cargo_box</uri>
+      <pose>-9.1 -7.0 0.144 0 0 0</pose>
+    </include>
+    <include>
+      <name>box_inbound_1b</name>
+      <uri>model://cargo_box</uri>
+      <pose>-9.1 -7.0 0.494 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>pallet_inbound_2</name>
+      <uri>model://euro_pallet</uri>
+      <pose>-7.5 -7.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>box_inbound_2a</name>
+      <uri>model://cargo_box</uri>
+      <pose>-7.5 -7.0 0.144 0 0 0</pose>
+    </include>
+
+    <!-- Outbound Staging Pallets & Boxes -->
+    <include>
+      <name>pallet_outbound_1</name>
+      <uri>model://euro_pallet</uri>
+      <pose>-9.0 7.0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>box_outbound_1</name>
+      <uri>model://cargo_box</uri>
+      <pose>-9.0 7.0 0.144 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>pallet_outbound_2</name>
+      <uri>model://euro_pallet</uri>
+      <pose>-7.5 7.0 0 0 0 0</pose>
+    </include>
+
+    <!-- Pallets Loaded in Rack Bays (Aisle A & B) -->
+    <include>
+      <name>pallet_rack_a1_bay1</name>
+      <uri>model://euro_pallet</uri>
+      <pose>-4.5 5.0 0.88 0 0 0</pose>
+    </include>
+    <include>
+      <name>box_rack_a1_bay1</name>
+      <uri>model://cargo_box</uri>
+      <pose>-4.5 5.0 1.024 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>pallet_rack_a2_bay2</name>
+      <uri>model://euro_pallet</uri>
+      <pose>-1.5 2.2 0.88 0 0 0</pose>
+    </include>
+    <include>
+      <name>box_rack_a2_bay2</name>
+      <uri>model://cargo_box</uri>
+      <pose>-1.5 2.2 1.024 0 0 0</pose>
+    </include>
+
+    <include>
+      <name>pallet_rack_b1_bay3</name>
+      <uri>model://euro_pallet</uri>
+      <pose>1.5 -2.2 0.88 0 0 0</pose>
+    </include>
+    <include>
+      <name>box_rack_b1_bay3</name>
+      <uri>model://cargo_box</uri>
+      <pose>1.5 -2.2 1.024 0 0 0</pose>
+    </include>
+
+    <!-- Inspection Workstation Table (East Zone) -->
+    <model name="inspection_table">
+      <static>true</static>
+      <link name="table_link">
+        <visual name="table_top">
+          <pose>8.5 4.5 0.80 0 0 0</pose>
+          <geometry><box><size>2.0 1.2 0.08</size></box></geometry>
+          <material><ambient>0.2 0.4 0.6 1</ambient><diffuse>0.3 0.5 0.7 1</diffuse></material>
+        </visual>
+        <collision name="col_table_top">
+          <pose>8.5 4.5 0.80 0 0 0</pose>
+          <geometry><box><size>2.0 1.2 0.08</size></box></geometry>
+        </collision>
+        <visual name="table_leg1"><pose>7.6 4.0 0.38 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>0.76</length></cylinder></geometry></visual>
+        <visual name="table_leg2"><pose>9.4 4.0 0.38 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>0.76</length></cylinder></geometry></visual>
+        <visual name="table_leg3"><pose>7.6 5.0 0.38 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>0.76</length></cylinder></geometry></visual>
+        <visual name="table_leg4"><pose>9.4 5.0 0.38 0 0 0</pose><geometry><cylinder><radius>0.04</radius><length>0.76</length></cylinder></geometry></visual>
+      </link>
+    </model>
+
+    <!-- ================= SAFETY BOLLARDS ================= -->
+    <!-- Protecting Rack Row Entrances -->
+    <include><name>bollard_a_west</name><uri>model://safety_bollard</uri><pose>-6.2 2.2 0 0 0 0</pose></include>
+    <include><name>bollard_a_east</name><uri>model://safety_bollard</uri><pose>6.2 2.2 0 0 0 0</pose></include>
+    <include><name>bollard_b_west</name><uri>model://safety_bollard</uri><pose>-6.2 -2.2 0 0 0 0</pose></include>
+    <include><name>bollard_b_east</name><uri>model://safety_bollard</uri><pose>6.2 -2.2 0 0 0 0</pose></include>
+    <!-- Protecting Charging Station -->
+    <include><name>bollard_dock_n</name><uri>model://safety_bollard</uri><pose>7.2 -5.2 0 0 0 0</pose></include>
+    <include><name>bollard_dock_s</name><uri>model://safety_bollard</uri><pose>7.2 -7.8 0 0 0 0</pose></include>
+
+  </world>
+</sdf>

@@ -1,0 +1,21 @@
+[0.025s] Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse
+[0.083s] CMake Error at CMakeLists.txt:8 (find_package):
+[0.083s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.084s]   has asked CMake to find a package configuration file provided by
+[0.084s]   "ament_cmake", but CMake did not find one.
+[0.085s] 
+[0.086s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.089s]   any of the following names:
+[0.090s] 
+[0.090s]     ament_cmakeConfig.cmake
+[0.090s]     ament_cmake-config.cmake
+[0.090s] 
+[0.090s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.090s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.090s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.090s]   has been installed.
+[0.090s] 
+[0.090s] 
+[0.090s] -- Configuring incomplete, errors occurred!
+[0.093s] See also "/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/CMakeOutput.log".
+[0.094s] Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '1': /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse

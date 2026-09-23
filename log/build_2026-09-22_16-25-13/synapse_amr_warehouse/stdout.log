@@ -1,0 +1,56 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//launch/warehouse_sim.launch.py
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//worlds/warehouse.world
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/cargo_box/model.config
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/cargo_box/model.sdf
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/charging_dock/model.config
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/charging_dock/model.sdf
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/euro_pallet/model.config
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/euro_pallet/model.sdf
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/pallet_rack/model.config
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/pallet_rack/model.sdf
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/safety_bollard/model.config
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/safety_bollard/model.sdf
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//urdf/synapse_amr.urdf.xacro
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//maps/warehouse_map.pgm
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//maps/warehouse_map.yaml
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//rviz/warehouse_view.rviz
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/amr_specs.json
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/inventory_data.json
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/warehouse_stations.yaml
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/synapse_amr_warehouse/amr_rule_engine.py
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/synapse_amr_warehouse/teleop_keyboard.py
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/package_run_dependencies/synapse_amr_warehouse
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/parent_prefix_path/synapse_amr_warehouse
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/ament_prefix_path.sh
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/ament_prefix_path.dsv
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/path.sh
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/path.dsv
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.bash
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.sh
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.zsh
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.dsv
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.dsv
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/packages/synapse_amr_warehouse
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/cmake/synapse_amr_warehouseConfig.cmake
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/cmake/synapse_amr_warehouseConfig-version.cmake
+-- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.xml

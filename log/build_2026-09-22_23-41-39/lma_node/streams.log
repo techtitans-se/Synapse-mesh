@@ -1,0 +1,37 @@
+[1.619s] Invoking command in '/home/akil/Desktop/synapse_mesh/scratch_lma_node': PYTHONPATH=/home/akil/Desktop/synapse_mesh/build/lma_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/lma_node build --build-base /home/akil/Desktop/synapse_mesh/build/lma_node/build install --record /home/akil/Desktop/synapse_mesh/build/lma_node/install.log --install-scripts $base/lib/lma_node --single-version-externally-managed install_data
+[1.901s] running egg_info
+[1.902s] creating ../build/lma_node/lma_node.egg-info
+[1.902s] writing ../build/lma_node/lma_node.egg-info/PKG-INFO
+[1.904s] writing dependency_links to ../build/lma_node/lma_node.egg-info/dependency_links.txt
+[1.904s] writing entry points to ../build/lma_node/lma_node.egg-info/entry_points.txt
+[1.904s] writing requirements to ../build/lma_node/lma_node.egg-info/requires.txt
+[1.904s] writing top-level names to ../build/lma_node/lma_node.egg-info/top_level.txt
+[1.904s] writing manifest file '../build/lma_node/lma_node.egg-info/SOURCES.txt'
+[1.906s] reading manifest file '../build/lma_node/lma_node.egg-info/SOURCES.txt'
+[1.906s] writing manifest file '../build/lma_node/lma_node.egg-info/SOURCES.txt'
+[1.907s] running build
+[1.907s] running build_py
+[1.909s] creating /home/akil/Desktop/synapse_mesh/build/lma_node/build
+[1.909s] creating /home/akil/Desktop/synapse_mesh/build/lma_node/build/lib
+[1.911s] creating /home/akil/Desktop/synapse_mesh/build/lma_node/build/lib/lma_node
+[1.911s] copying lma_node/__init__.py -> /home/akil/Desktop/synapse_mesh/build/lma_node/build/lib/lma_node
+[1.911s] copying lma_node/lma_node.py -> /home/akil/Desktop/synapse_mesh/build/lma_node/build/lib/lma_node
+[1.911s] running install
+[1.911s] running install_lib
+[1.911s] creating /home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages/lma_node
+[1.911s] copying /home/akil/Desktop/synapse_mesh/build/lma_node/build/lib/lma_node/__init__.py -> /home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages/lma_node
+[1.911s] copying /home/akil/Desktop/synapse_mesh/build/lma_node/build/lib/lma_node/lma_node.py -> /home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages/lma_node
+[1.911s] byte-compiling /home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages/lma_node/__init__.py to __init__.cpython-310.pyc
+[1.911s] byte-compiling /home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages/lma_node/lma_node.py to lma_node.cpython-310.pyc
+[1.912s] running install_data
+[1.912s] creating /home/akil/Desktop/synapse_mesh/install/lma_node/share/ament_index
+[1.912s] creating /home/akil/Desktop/synapse_mesh/install/lma_node/share/ament_index/resource_index
+[1.912s] creating /home/akil/Desktop/synapse_mesh/install/lma_node/share/ament_index/resource_index/packages
+[1.912s] copying resource/lma_node -> /home/akil/Desktop/synapse_mesh/install/lma_node/share/ament_index/resource_index/packages
+[1.912s] copying package.xml -> /home/akil/Desktop/synapse_mesh/install/lma_node/share/lma_node
+[1.912s] running install_egg_info
+[1.916s] Copying ../build/lma_node/lma_node.egg-info to /home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages/lma_node-0.0.0-py3.10.egg-info
+[1.916s] running install_scripts
+[1.942s] Installing lma_node script to /home/akil/Desktop/synapse_mesh/install/lma_node/lib/lma_node
+[1.943s] writing list of installed files to '/home/akil/Desktop/synapse_mesh/build/lma_node/install.log'
+[2.004s] Invoked command in '/home/akil/Desktop/synapse_mesh/scratch_lma_node' returned '0': PYTHONPATH=/home/akil/Desktop/synapse_mesh/build/lma_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/akil/Desktop/synapse_mesh/install/lma_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/lma_node build --build-base /home/akil/Desktop/synapse_mesh/build/lma_node/build install --record /home/akil/Desktop/synapse_mesh/build/lma_node/install.log --install-scripts $base/lib/lma_node --single-version-externally-managed install_data

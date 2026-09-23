@@ -1,0 +1,2 @@
+Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse
+Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '1': /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapse AMR Dashboard</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- roslibjs -->
+    <script src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="top-bar">
+            <div class="logo">
+                <div class="pulse-dot"></div>
+                <h1>Synapse AMR Dashboard</h1>
+            </div>
+            <div class="status-indicator">
+                <span id="ros-status" class="status-badge disconnected">Disconnected</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content-grid">
+            
+            <div class="left-column" style="display: flex; flex-direction: column; gap: 24px;">
+<!-- Map Section -->
+            <section class="glass-panel map-section">
+                <div class="panel-header">
+                    <h2>Live Warehouse Map</h2>
+                    <span class="view-mode">Top-Down View</span>
+                </div>
+                <div class="map-container">
+                    <canvas id="warehouse-map" width="800" height="600"></canvas>
+                </div>
+            </section>
+                <div class="bottom-controls" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+<!-- Dispatch Panel -->
+                <div class="glass-panel stat-card">
+                    <h2>Task Dispatcher</h2>
+                    <div class="dispatch-form">
+                        <div class="form-group">
+                            <label for="target-load">Select Load:</label>
+                            <select id="target-load">
+                                <option value="box_inbound_1a">box_inbound_1a</option>
+                                <option value="box_inbound_1b">box_inbound_1b</option>
+                                <option value="box_inbound_2a">box_inbound_2a</option>
+                                <option value="box_outbound_1">box_outbound_1</option>
+                                <option value="box_rack_a1_bay1">box_rack_a1_bay1</option>
+                                <option value="box_rack_a2_bay2">box_rack_a2_bay2</option>
+                                <option value="box_rack_b1_bay3">box_rack_b1_bay3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dropoff-loc">Drop-off Location:</label>
+                            <select id="dropoff-loc">
+                                <option value="Outbound Staging">Outbound Staging</option>
+                                <option value="QC Station">QC Station</option>
+                                <option value="Charging Dock">Charging Dock</option>
+                            </select>
+                        </div>
+                        <button id="dispatch-btn" class="dispatch-button">Dispatch AMR</button>
+                        <button id="stress-test-btn" class="dispatch-button" style="margin-top: 15px; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">Trigger ST-Lease Stress Test</button>
+                        <button id="vos-stress-test-btn" class="dispatch-button" style="margin-top: 15px; background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">Trigger VOS Stress Test</button>
+                    </div>
+                </div>
+
+                <!-- System Controls -->
+                <div class="glass-panel stat-card">
+                    <h2>System Controls</h2>
+                    <button id="restart-sim-btn" class="danger-button">
+                        <span class="btn-text">Restart Simulation (ST-Lease)</span>
+                    </button>
+                    <button id="restart-vos-btn" class="danger-button" style="margin-top: 10px; background: rgba(155, 89, 182, 0.2); border-color: #9b59b6; color: #9b59b6;">
+                        <span class="btn-text">Restart Simulation (VOS Mode)</span>
+                    </button>
+                </div>
+                </div>
+
+            </div>
+
+
+            <!-- Stats & Control Section -->
+            <section class="side-panel">
+                
+                <!-- Tabs Header -->
+                <div class="tabs-header" style="display: flex; gap: 12px; margin-bottom: 8px;">
+                    <button class="tab-btn active" id="btn-tab-general" onclick="switchTab('tab-general')">Dashboard</button>
+                    <button class="tab-btn" id="btn-tab-stlease" onclick="switchTab('tab-stlease')">ST-Lease</button>
+                    <button class="tab-btn" id="btn-tab-vos" onclick="switchTab('tab-vos')">VOS Monitor</button>
+                </div>
+
+                <!-- Tab Content: General -->
+                <div id="tab-general" class="tab-content active" style="display: flex; flex-direction: column; gap: 12px;">
+<!-- Telemetry -->
+                <div class="glass-panel stat-card">
+                    <h2>AMR Telemetry</h2>
+                    <div class="robot-selector">
+                        <label for="active-robot">Select Robot:</label>
+                        <select id="active-robot">
+                            <option value="synapse_amr_1">AMR 1</option>
+                            <option value="synapse_amr_2">AMR 2</option>
+                            <option value="synapse_amr_3">AMR 3</option>
+                        </select>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="label">X Position</span>
+                            <span class="value" id="pos-x">0.00 m</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Y Position</span>
+                            <span class="value" id="pos-y">0.00 m</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Heading (Yaw)</span>
+                            <span class="value" id="pos-yaw">0.0°</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Linear Vel</span>
+                            <span class="value" id="vel-linear">0.00 m/s</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Angular Vel</span>
+                            <span class="value" id="vel-angular">0.00 rad/s</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Status -->
+                <div class="glass-panel stat-card">
+                    <h2>System Status</h2>
+                    <div class="system-status-grid">
+                        <div class="status-row">
+                            <span class="label">Battery Level</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="battery-bar" style="width: 100%;"></div>
+                            </div>
+                            <span class="value" id="battery-val">100%</span>
+                        </div>
+                        <div class="status-row">
+                            <span class="label">Rule Engine</span>
+                            <span class="status-badge active" id="rule-engine-status">Active</span>
+                        </div>
+                        <div class="status-row">
+                            <span class="label">Current Zone</span>
+                            <span class="value accent" id="current-zone">TRANSIT</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+                </div>
+                <!-- Tab Content: ST-Lease -->
+                <div id="tab-stlease" class="tab-content" style="display: none; flex-direction: column; gap: 12px;">
+<!-- ST-Lease Fleet Manager -->
+                <div class="glass-panel stat-card" style="margin-top: 20px;">
+                    <h2>ST-Lease Fleet Manager</h2>
+                    <div style="overflow-x: auto;">
+                        <table id="st-lease-table" style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85em; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+                                    <th style="padding: 8px;">AMR</th>
+                                    <th style="padding: 8px;">Held Node</th>
+                                    <th style="padding: 8px;">Requested</th>
+                                    <th style="padding: 8px;">Priority</th>
+                                    <th style="padding: 8px;">State</th>
+                                </tr>
+                            </thead>
+                            <tbody id="st-lease-body">
+                                <tr>
+                                    <td colspan="5" style="padding: 8px; text-align: center; color: rgba(255,255,255,0.5);">Waiting for ST-Lease Data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                
+                </div>
+                <!-- Tab Content: VOS Monitor -->
+                <div id="tab-vos" class="tab-content" style="display: none; flex-direction: column; gap: 12px;">
+<!-- VOS Live Monitor Panel -->
+                <div class="glass-panel stat-card" id="vos-panel" style="margin-top: 20px; border: 1px solid rgba(155, 89, 182, 0.4); background: rgba(155, 89, 182, 0.05);">
+                    <h2 style="color: #9b59b6;">VOS Live Monitor <span id="vos-mode-badge" style="font-size:0.65em; background: rgba(155,89,182,0.2); color: #9b59b6; border: 1px solid #9b59b6; border-radius: 20px; padding: 2px 10px; margin-left: 8px;">INACTIVE</span></h2>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.8em; margin: 0 0 15px 0;">Virtual Occupancy Shadow — Real-time dead zone tracking &amp; decentralized exception handling</p>
+
+                    <!-- Phase Progress Bar -->
+                    <div style="margin-bottom: 18px;">
+                        <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                            <div id="vos-phase-1" class="vos-phase-step" style="flex:1; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); text-align:center; font-size:0.75em; color: rgba(255,255,255,0.3); transition: all 0.5s;">1. Predictive RSSI Broadcast</div>
+                            <div id="vos-phase-2" class="vos-phase-step" style="flex:1; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); text-align:center; font-size:0.75em; color: rgba(255,255,255,0.3); transition: all 0.5s;">2. Shadow Expansion</div>
+                            <div id="vos-phase-3" class="vos-phase-step" style="flex:1; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); text-align:center; font-size:0.75em; color: rgba(255,255,255,0.3); transition: all 0.5s;">3. P2P Gossip Query</div>
+                            <div id="vos-phase-4" class="vos-phase-step" style="flex:1; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); text-align:center; font-size:0.75em; color: rgba(255,255,255,0.3); transition: all 0.5s;">4. Consensus Reached</div>
+                        </div>
+                    </div>
+
+                    <!-- Robot Status Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px;">
+                        <div id="vos-amr1-card" style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.5s;">
+                            <div style="font-size:0.8em; color: rgba(255,255,255,0.5); margin-bottom:4px;">AMR 1</div>
+                            <div id="vos-amr1-role" style="font-weight:600; font-size:0.9em; color: #3498db;">OBSERVER</div>
+                            <div id="vos-amr1-status" style="font-size:0.75em; color: rgba(255,255,255,0.4); margin-top:4px;">Idle</div>
+                        </div>
+                        <div id="vos-amr2-card" style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.5s;">
+                            <div style="font-size:0.8em; color: rgba(255,255,255,0.5); margin-bottom:4px;">AMR 2</div>
+                            <div id="vos-amr2-role" style="font-weight:600; font-size:0.9em; color: #2ecc71;">PEER</div>
+                            <div id="vos-amr2-status" style="font-size:0.75em; color: rgba(255,255,255,0.4); margin-top:4px;">Idle</div>
+                        </div>
+                        <div id="vos-amr3-card" style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.5s;">
+                            <div style="font-size:0.8em; color: rgba(255,255,255,0.5); margin-bottom:4px;">AMR 3 — Dead Zone Subject</div>
+                            <div id="vos-amr3-role" style="font-weight:600; font-size:0.9em; color: #e74c3c;">ENTERING DEAD ZONE</div>
+                            <div id="vos-amr3-status" style="font-size:0.75em; color: rgba(255,255,255,0.4); margin-top:4px;">Signal: OK</div>
+                        </div>
+                    </div>
+
+                    <!-- Shadow Expansion Bar -->
+                    <div style="margin-bottom: 15px;">
+                        <div style="display:flex; justify-content:space-between; font-size:0.75em; color:rgba(255,255,255,0.5); margin-bottom:4px;">
+                            <span>VOS Shadow Radius</span>
+                            <span id="vos-shadow-label">0s — No Shadow</span>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.3); border-radius: 20px; height: 10px; overflow:hidden;">
+                            <div id="vos-shadow-bar" style="height:100%; width:0%; background: linear-gradient(90deg, #9b59b6, #e74c3c); border-radius:20px; transition: width 1s ease, background 1s ease;"></div>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; font-size:0.7em; color:rgba(255,255,255,0.3); margin-top:2px;">
+                            <span>Signal OK</span>
+                            <span>5s: Shadow Cast</span>
+                            <span>10s: Gossip Trigger</span>
+                        </div>
+                    </div>
+
+                    <!-- Live Event Log -->
+                    <div>
+                        <div style="font-size:0.8em; color:rgba(255,255,255,0.5); margin-bottom:6px;">Live VOS Events</div>
+                        <div id="vos-event-log" style="background: rgba(0,0,0,0.4); border-radius: 8px; padding: 10px; height: 140px; overflow-y: auto; font-family: monospace; font-size: 0.75em; border: 1px solid rgba(155,89,182,0.2);">
+                            <div style="color: rgba(255,255,255,0.3);">Waiting for VOS activity...</div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                </div>
+</section>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="main.js"></script>
+</body>
+</html>

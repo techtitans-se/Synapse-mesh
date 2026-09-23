@@ -54,13 +54,25 @@ class AMRTaskExecutor(Node):
         self.enable_vos = self.get_parameter('enable_vos').get_parameter_value().bool_value
 
         # --- ST-Lease Protocol ---
-        if self.enable_st_lease:
-            self.lease_pub = self.create_publisher(String, '/st_lease/coordination', 10)
-            self.lease_sub = self.create_subscription(String, '/st_lease/coordination', self.lease_callback, 10)
+        if self.enable_st_lease or self.enable_vos:
+            topic = '/vos/coordination' if self.enable_vos else '/st_lease/coordination'
+            self.lease_pub = self.create_publisher(String, topic, 10)
+            self.lease_sub = self.create_subscription(String, topic, self.lease_callback, 10)
             self.lease_timer = self.create_timer(0.5, self.publish_lease_heartbeat)
+            
+        if self.enable_st_lease:
             self.get_logger().info("ST-Lease Coordinator Mode Enabled.")
         elif self.enable_vos:
             self.get_logger().info("VOS (Virtual Operation Space) Mode Enabled.")
+            self.vos_gossip_pub = self.create_publisher(String, '/vos/gossip', 10)
+            self.vos_gossip_sub = self.create_subscription(String, '/vos/gossip', self.vos_gossip_callback, 10)
+            self.vos_status_pub = self.create_publisher(String, '/vos/status', 10)
+            self.vos_simulated_packet_loss = False
+            self.vos_dead_zone_nodes = {"w_aisle_b", "aisle_b_1", "aisle_b_2", "aisle_b_3", "aisle_b_4", "box_rack_b1_bay3"}
+            self.vos_escalation_cancelled = False
+            self.vos_gossiping_active = False
+            self.vos_pre_entry_pause_done = False
+            self.vos_pre_entry_pause_start = 0.0
             
         self.held_nodes = set()
         self.requested_node = None
@@ -127,6 +139,11 @@ class AMRTaskExecutor(Node):
             "box_outbound_1": {"x": -9.0, "y": 5.9},
         }
 
+        # Fix 0,0 initialization bug which breaks path planning on immediate dispatch
+        if self.home_station in self.nodes:
+            self.current_x = self.nodes[self.home_station]['x']
+            self.current_y = self.nodes[self.home_station]['y']
+        
         # Undirected Edges
         self.edges = [
             # West Corridor
@@ -167,8 +184,35 @@ class AMRTaskExecutor(Node):
         except Exception:
             pass
 
+    def vos_gossip_callback(self, msg):
+        try:
+            data = json.loads(msg.data)
+            if data['sender'] != self.robot_name:
+                if data['type'] == 'QUERY' and data['missing_robot'] == 'synapse_amr_3':
+                    missing_id = data['missing_robot']
+                    # Can we physically see the missing robot?
+                    if missing_id in self.other_amrs:
+                        pose = self.other_amrs[missing_id]
+                        dist = math.sqrt((pose.position.x - self.current_x)**2 + (pose.position.y - self.current_y)**2)
+                        if dist < 6.0: # Within line of sight
+                            self.get_logger().info(f"VOS GOSSIP: I see {missing_id} physically at {dist:.2f}m. Replying to consensus.")
+                            reply_msg = String()
+                            reply_msg.data = json.dumps({"sender": self.robot_name, "type": "REPLY", "missing_robot": missing_id})
+                            self.vos_gossip_pub.publish(reply_msg)
+                elif data['type'] == 'REPLY' and data['missing_robot'] in self.fleet_state:
+                    self.get_logger().info(f"VOS GOSSIP: Local Consensus Reached! {data['sender']} located {data['missing_robot']}. FMS Escalation Cancelled.")
+                    self.vos_escalation_cancelled = True
+                    self.vos_gossiping_active = False
+                    self.status_label = self.state
+        except Exception:
+            pass
+
     def publish_lease_heartbeat(self):
-        if not self.enable_st_lease:
+        if not self.enable_st_lease and not self.enable_vos:
+            return
+            
+        if self.enable_vos and getattr(self, 'vos_simulated_packet_loss', False):
+            # Suppress standard telemetry to simulate dead zone packet loss
             return
             
         priority = self.priority_base + self.aging_factor
@@ -188,16 +232,39 @@ class AMRTaskExecutor(Node):
         self.lease_pub.publish(msg)
         
     def check_lease_available(self, target_node):
-        if not self.enable_st_lease:
-            return True, None, "ST-Lease Disabled"
+        if not self.enable_st_lease and not self.enable_vos:
+            return True, None, "Protocols Disabled"
             
         my_priority = self.priority_base + self.aging_factor
         if self.wait_start_time > 0:
             my_priority += (time.time() - self.wait_start_time) * 0.1
 
         for other_id, state in self.fleet_state.items():
-            # Check timeout (3 seconds)
-            if time.time() - state.get('timestamp', 0) > 3.0:
+            time_since_update = time.time() - state.get('timestamp', 0)
+            
+            # --- VOS Breathing Probabilistic Shadow & Decentralized Exception Handling ---
+            if self.enable_vos and time_since_update > 3.0:
+                last_held = state.get('held_nodes', [])
+                if any(node in self.vos_dead_zone_nodes for node in last_held):
+                    if time_since_update > 10.0 and not self.vos_escalation_cancelled:
+                        if not self.vos_gossiping_active:
+                            self.get_logger().warn(f"VOS EXCEPTION: {other_id} missing in Dead Zone! Triggering P2P Gossip Query.")
+                            self.vos_gossiping_active = True
+                            self.status_label = "VOS GOSSIPING"
+                            # Send gossip query to peers
+                            query_msg = String()
+                            query_msg.data = json.dumps({"sender": self.robot_name, "type": "QUERY", "missing_robot": other_id})
+                            self.vos_gossip_pub.publish(query_msg)
+                        return False, other_id, "VOS Exception: Gossiping"
+                        
+                    elif time_since_update > 5.0 and not self.vos_escalation_cancelled:
+                        # Shadow expands to cover the entire dead zone safely
+                        if target_node in self.vos_dead_zone_nodes:
+                            return False, other_id, "VOS Expanded Shadow"
+                elif not self.enable_vos:
+                    continue
+            elif not self.enable_vos and time_since_update > 3.0:
+                # ST-Lease standard timeout
                 continue
 
             # Is someone holding it?
@@ -286,6 +353,7 @@ class AMRTaskExecutor(Node):
                     exclude_edges.add(("w_aisle_b", "w_center"))
                 
                 path_nodes = self.bfs_path(start_node, self.target_load, exclude_edges=exclude_edges)
+                self.get_logger().info(f"DEBUG: start_node={start_node}, target={self.target_load}, path_nodes={path_nodes}")
                 
                 if path_nodes:
                     self.current_path = path_nodes
@@ -304,7 +372,7 @@ class AMRTaskExecutor(Node):
                         self.held_nodes.add(start_node)
                         
                 else:
-                    self.get_logger().error("No path found to target load.")
+                    self.get_logger().error(f"No path found to target load. Start: {start_node}, Target: {self.target_load}")
             else:
                 self.get_logger().error("Invalid locations in dispatch.")
         except Exception as e:
@@ -385,6 +453,39 @@ class AMRTaskExecutor(Node):
         dx = target_pos['x'] - self.current_x
         dy = target_pos['y'] - self.current_y
         distance = math.sqrt(dx**2 + dy**2)
+        
+        # --- VOS Predictive RSSI Broadcasting ---
+        if self.enable_vos:
+            if target_node_name in self.vos_dead_zone_nodes and not self.vos_simulated_packet_loss:
+                if distance < 1.5:
+                    # --- Step 1: Pre-entry pause (1 second) + path broadcast ---
+                    if not self.vos_pre_entry_pause_done:
+                        if self.vos_pre_entry_pause_start == 0.0:
+                            # First tick: stop robot and start the pause timer
+                            self.vos_pre_entry_pause_start = time.time()
+                            self.get_logger().warn(f"VOS: Dead Zone boundary detected at '{target_node_name}'. Pausing 1s to broadcast path to peers.")
+                            
+                        # Keep robot stopped during the 1-second pause
+                        self.vel_pub.publish(Twist())
+                        if time.time() - self.vos_pre_entry_pause_start < 1.0:
+                            return  # Still pausing
+                        # Pause done — now enter
+                        self.vos_pre_entry_pause_done = True
+                        self.get_logger().warn(f"VOS: Path broadcast complete. Entering Dead Zone — signal will be lost.")
+
+                    # --- Step 2: Enter dead zone, kill telemetry ---
+                    self.vos_simulated_packet_loss = True
+                    self.status_label = "VOS DEADZONE"
+                    self.publish_lease_heartbeat()  # Final predictive heartbeat
+
+            elif target_node_name not in self.vos_dead_zone_nodes and self.vos_simulated_packet_loss:
+                self.get_logger().info("VOS: Exited Dead Zone. RSSI restored. Resuming telemetry.")
+                self.vos_simulated_packet_loss = False
+                self.vos_escalation_cancelled = False
+                self.vos_pre_entry_pause_done = False
+                self.vos_pre_entry_pause_start = 0.0
+                self.status_label = self.state
+                
         target_yaw = math.atan2(dy, dx)
         
         yaw_error = target_yaw - self.current_yaw

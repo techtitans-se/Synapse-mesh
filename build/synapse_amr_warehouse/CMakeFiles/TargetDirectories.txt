@@ -1,0 +1,9 @@
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/uninstall.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/synapse_amr_warehouse_uninstall.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/test.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/edit_cache.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/rebuild_cache.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/list_install_components.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/install.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/install/local.dir
+/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse/CMakeFiles/install/strip.dir

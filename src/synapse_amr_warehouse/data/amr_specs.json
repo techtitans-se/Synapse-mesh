@@ -1,0 +1,60 @@
+{
+  "robot_id": "SYNAPSE_AMR_01",
+  "robot_class": "Industrial Autonomous Mobile Robot (Differential Drive)",
+  "mechanical": {
+    "length_m": 0.85,
+    "width_m": 0.60,
+    "height_m": 0.32,
+    "unloaded_mass_kg": 50.0,
+    "max_payload_kg": 250.0,
+    "drive_type": "differential",
+    "wheel_diameter_m": 0.16,
+    "wheel_separation_m": 0.52,
+    "ground_clearance_m": 0.045
+  },
+  "kinematics": {
+    "max_linear_velocity_mps": 1.5,
+    "max_angular_velocity_radps": 1.8,
+    "max_linear_acceleration_mps2": 2.0,
+    "max_angular_acceleration_radps2": 2.5,
+    "turning_radius_m": 0.0
+  },
+  "battery": {
+    "chemistry": "LiFePO4",
+    "nominal_voltage_v": 48.0,
+    "capacity_ah": 40.0,
+    "nominal_energy_wh": 1920.0,
+    "discharge_rate_normal_w": 180.0,
+    "charge_rate_dock_w": 960.0,
+    "low_battery_threshold_pct": 20.0,
+    "critical_battery_threshold_pct": 10.0
+  },
+  "sensors": {
+    "lidar": {
+      "type": "2D Time-of-Flight Planar Scanner",
+      "topic": "/scan",
+      "fov_deg": 360.0,
+      "range_min_m": 0.15,
+      "range_max_m": 20.0,
+      "update_rate_hz": 15.0
+    },
+    "depth_camera": {
+      "type": "Forward RGB-D",
+      "rgb_topic": "/camera/image_raw",
+      "depth_topic": "/camera/depth/image_raw",
+      "fov_h_rad": 1.25,
+      "range_max_m": 8.0,
+      "update_rate_hz": 20.0
+    },
+    "imu": {
+      "type": "6-DoF Industrial IMU",
+      "topic": "/imu/data",
+      "update_rate_hz": 50.0
+    },
+    "odometry": {
+      "topic": "/odom",
+      "source": "Wheel Encoders",
+      "update_rate_hz": 50.0
+    }
+  }
+}

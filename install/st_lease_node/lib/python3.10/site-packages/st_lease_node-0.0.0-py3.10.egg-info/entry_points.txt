@@ -1,0 +1,3 @@
+[console_scripts]
+st_lease_node = st_lease_node.st_lease_node:main
+

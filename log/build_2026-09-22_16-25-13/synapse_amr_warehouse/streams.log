@@ -1,0 +1,62 @@
+[0.009s] Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse
+[0.077s] -- The C compiler identification is GNU 11.4.0
+[0.133s] -- The CXX compiler identification is GNU 11.4.0
+[0.142s] -- Detecting C compiler ABI info
+[0.191s] -- Detecting C compiler ABI info - done
+[0.195s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.196s] -- Detecting C compile features
+[0.197s] -- Detecting C compile features - done
+[0.201s] -- Detecting CXX compiler ABI info
+[0.254s] -- Detecting CXX compiler ABI info - done
+[0.258s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.258s] -- Detecting CXX compile features
+[0.258s] -- Detecting CXX compile features - done
+[0.261s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.362s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.409s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.469s] -- Configuring done
+[0.475s] -- Generating done
+[0.475s] -- Build files have been written to: /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse
+[0.476s] Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse
+[0.478s] Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse -- -j12 -l12
+[0.505s] Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse -- -j12 -l12
+[0.512s] Invoking command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse
+[0.516s] -- Install configuration: ""
+[0.517s] -- Execute custom install script
+[0.517s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//launch/warehouse_sim.launch.py
+[0.524s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//worlds/warehouse.world
+[0.530s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/cargo_box/model.config
+[0.537s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/cargo_box/model.sdf
+[0.543s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/charging_dock/model.config
+[0.549s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/charging_dock/model.sdf
+[0.554s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/euro_pallet/model.config
+[0.561s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/euro_pallet/model.sdf
+[0.567s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/pallet_rack/model.config
+[0.572s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/pallet_rack/model.sdf
+[0.577s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/safety_bollard/model.config
+[0.585s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//models/safety_bollard/model.sdf
+[0.592s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//urdf/synapse_amr.urdf.xacro
+[0.599s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//maps/warehouse_map.pgm
+[0.604s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//maps/warehouse_map.yaml
+[0.610s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//rviz/warehouse_view.rviz
+[0.617s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/amr_specs.json
+[0.623s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/inventory_data.json
+[0.631s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse//data/warehouse_stations.yaml
+[0.638s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/synapse_amr_warehouse/amr_rule_engine.py
+[0.644s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/lib/synapse_amr_warehouse/teleop_keyboard.py
+[0.650s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/package_run_dependencies/synapse_amr_warehouse
+[0.656s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/parent_prefix_path/synapse_amr_warehouse
+[0.664s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/ament_prefix_path.sh
+[0.670s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/ament_prefix_path.dsv
+[0.679s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/path.sh
+[0.685s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/environment/path.dsv
+[0.691s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.bash
+[0.697s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.sh
+[0.703s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.zsh
+[0.712s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/local_setup.dsv
+[0.718s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.dsv
+[0.726s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/ament_index/resource_index/packages/synapse_amr_warehouse
+[0.732s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/cmake/synapse_amr_warehouseConfig.cmake
+[0.738s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/cmake/synapse_amr_warehouseConfig-version.cmake
+[0.744s] -- Symlinking: /home/akil/Desktop/synapse_mesh/install/synapse_amr_warehouse/share/synapse_amr_warehouse/package.xml
+[0.751s] Invoked command in '/home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/akil/Desktop/synapse_mesh/build/synapse_amr_warehouse
