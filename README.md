@@ -1,4 +1,4 @@
-# Synapse AMR Warehouse Simulation (ROS 2 Humble + Gazebo)
+# SYNAPSE-MESH EDGE-AI DISTRIBUTED FLEET COORDINATION
 
 A simulation of an industrial Autonomous Mobile Robot (AMR) inside a modern warehouse facility in Gazebo Classic with preloaded templates, inventory databases, waypoint stations, and extensible rule engine hooks.
 
@@ -6,7 +6,7 @@ A simulation of an industrial Autonomous Mobile Robot (AMR) inside a modern ware
 
 ---
 
-## 🚀 Quick Start Commands
+## Quick Start Commands
 
 From this directory (`/home/akil/Desktop/synapse_mesh`):
 
@@ -46,7 +46,7 @@ In a new terminal:
 
 ---
 
-## 📂 Preloaded Data & Templates
+## Preloaded Data & Templates
 
 | File | Purpose | Preloaded Contents |
 | :--- | :--- | :--- |
@@ -57,7 +57,7 @@ In a new terminal:
 
 ---
 
-## 🤖 Robot Specifications (`synapse_amr`)
+## Robot Specifications (`synapse_amr`)
 
 - **Chassis**: Industrial low-profile differential drive (0.85m x 0.60m x 0.32m).
 - **Wheels**: Dual center traction drive wheels + 4 low-friction caster ball supports for zero-slip stability.
@@ -70,7 +70,7 @@ In a new terminal:
 
 ---
 
-## 🏭 Warehouse Layout Elements & Models
+## Warehouse Layout Elements & Models
 
 - **Industrial Pallet Racks**: Multi-tier heavy-duty storage racks forming Aisle A and Aisle B.
 - **Euro-Pallets**: 1200mm x 800mm industrial wooden pallets placed in storage bays and dock zones.
@@ -80,7 +80,7 @@ In a new terminal:
 
 ---
 
-## 🧩 Adding Custom Rules
+## Adding Custom Rules
 
 Open [`src/synapse_amr_warehouse/scripts/amr_rule_engine.py`](file:///home/akil/Desktop/synapse_mesh/src/synapse_amr_warehouse/scripts/amr_rule_engine.py) and add your custom logic inside the hook methods:
 - `rule_safety_collision_check()`
@@ -90,7 +90,24 @@ Open [`src/synapse_amr_warehouse/scripts/amr_rule_engine.py`](file:///home/akil/
 
 ---
 
-## 🧭 Spatio-Temporal Lease (ST-Lease)
+
+## Locality Manager Application (LMA)
+
+### Purpose
+The LMA is the module that implements locality-aware communication. It runs on each robot and manages which other robots that robot should exchange high-frequency coordination data with.
+
+### How it works
+- Each robot maintains a **Neighbor Table**: a list of robots within a configured proximity threshold.
+- The LMA subscribes the robot only to position/state topics of robots in its Neighbor Table.
+- As robots move, the Neighbor Table is updated, and subscriptions change accordingly.
+- Robots far away from a given robot do not need to send it high-frequency position updates — they only need to communicate at much lower frequency or during task-level coordination.
+
+### Expected Benefit
+Reduction in per-robot high-frequency coordination traffic in dense fleets. Actual reduction will depend on fleet size, warehouse layout, and robot density.
+
+---
+
+## Spatio-Temporal Lease (ST-Lease)
 
 ### Purpose
 ST-Lease enables nearby Autonomous Mobile Robots (AMRs) to resolve local resource conflicts, such as narrow aisles, without requiring a round-trip to the centralized Fleet Management System (FMS). The following mechanisms strengthen ST-Lease against communication failures, deadlocks, starvation, stale messages, and robot failures.
@@ -139,7 +156,7 @@ ST-Lease enables nearby Autonomous Mobile Robots (AMRs) to resolve local resourc
 
 ---
 
-## 📡 Synapse-Mesh: VOS Architecture Upgrades
+## Synapse-Mesh: VOS Architecture Upgrades
 
 The Virtual Occupancy Shadow (VOS) relies on static bounding boxes and reactive dead-zone handling. To ensure fault tolerance, the VOS module has three critical dynamic/predictive upgrades:
 
@@ -157,7 +174,7 @@ The Virtual Occupancy Shadow (VOS) relies on static bounding boxes and reactive 
 
 ---
 
-## 🧠 Synapse-Mesh: Edge-AI Integration & Kinodynamic Profiling
+## Synapse-Mesh: Edge-AI Integration & Kinodynamic Profiling
 
 ### Executive Summary
 Instead of handling intersections like cars at a stop sign (stop-and-go), Synapse-Mesh replaces binary spatial yielding with **Momentum-Aware Kinodynamic Yielding**. By deploying a lightweight, supervised machine learning regression model at the edge, the system calculates optimal fractional velocity vectors ($`v_{approach}`$) in real-time. This tells the yielding robot to slightly reduce its speed so it seamlessly coasts through the intersection right after the first robot passes, eliminating the static-friction torque penalty and saving massive amounts of battery.
